@@ -2,13 +2,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('internet-needs-form');
     if (!form) return;
 
-    // Define links for the technologies
+// Define links and icons for the technologies
     const techLinks = {
-        '4G': { name: '4G internet', url: 'https://teleguiden.dk/mobilt-bredbaand/' },
-        '5G': { name: '5G internet', url: 'https://teleguiden.dk/5g-internet/' },
-        'Fibernet': { name: 'Fibernet', url: 'https://teleguiden.dk/fibernet/' },
-        'Kabel-TV-net': { name: 'Kabel-TV-net', url: 'https://teleguiden.dk/bredband-via-kabel-tv-stikket/' }
-    };
+        '4G': {
+            name: '4G internet',
+            url: 'https://teleguiden.dk/mobilt-bredbaand/',
+            svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-icon"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>'
+        },
+        '5G': {
+            name: '5G internet',
+            url: 'https://teleguiden.dk/5g-internet/',
+            svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-icon"><path d="M12 20h.01"></path><path d="M8.5 16.4a5 5 0 0 1 7 0"></path><path d="M5 12.8a10 10 0 0 1 14 0"></path><path d="M2 9.2a15 15 0 0 1 20 0"></path></svg>'
+        },
+        'Fibernet': {
+            name: 'Fibernet',
+            url: 'https://teleguiden.dk/fibernet/',
+            svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>'
+        },
+        'Kabel-TV-net': {
+            name: 'Kabel-TV-net',
+            url: 'https://teleguiden.dk/bredband-via-kabel-tv-stikket/',
+            svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-icon"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>'
+        }
+};
 
     // Function to calculate and display the result
     function calculateAndDisplayResult() {
@@ -102,14 +118,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.href = techInfo.url;
-                link.textContent = techInfo.name;
-                link.target = '_blank'; // Open in a new tab
+                link.target = '_self'; // Open in a new tab
+                
+                // Combine SVG icon and text name
+                link.innerHTML = `${techInfo.svg} <span>${techInfo.name}</span>`;
+                
                 listItem.appendChild(link);
                 techList.appendChild(listItem);
             });
         } else {
              const listItem = document.createElement('li');
-             // *** DENNE LINJE ER OVERSAT ***
              listItem.textContent = 'Ingen teknologier matcher dit høje behov. Overvej en dedikeret fiberforbindelse.';
              techList.appendChild(listItem);
         }

@@ -1,9 +1,5 @@
 /* Define color variables for easy customization */
 :root {
-    --accent: #0073e6;
-    --contrast: #1e1e1e;
-    --contrast-2: #f0f4f8;
-    --contrast-3: #d1d9e1;
     --bg-color: #ffffff;
 }
 
@@ -82,31 +78,47 @@
     line-height: 1.1;
 }
 
+/* Styling for Technology Recommendation Buttons */
 #tech-recommendations {
     padding-left: 0;
-    text-align: left;
-    margin-top: 10px;
-    list-style-type: none;
+    margin-top: 20px;
+    list-style-type: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 #tech-recommendations li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--contrast-3);
-    list-style-type: none;
-}
-#tech-recommendations li:last-child {
+    padding: 0;
     border-bottom: none;
+    list-style-type: none !important;
 }
 
 #tech-recommendations a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 2px solid var(--contrast-3);
+    border-radius: 8px;
     text-decoration: none;
-    color: var(--accent);
-    font-size: 1.1rem;
+    color: var(--contrast);
+    font-size: 1rem;
     font-weight: bold;
-    transition: opacity 0.2s;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--bg-color);
 }
+
 #tech-recommendations a:hover {
-    opacity: 0.7;
+    border-color: var(--accent);
+    opacity: 1;
+}
+
+.tech-icon {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+    flex-shrink: 0;
 }
 
 /* Right section (Form) */
@@ -204,8 +216,14 @@
         margin-bottom: 0.5rem!important;
         margin-top: 0!important;
     }
+
     #tech-recommendations {
         margin-bottom: 0!important;
+    }
+
+    #tech-recommendations a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
     }
 }
 
