@@ -25,6 +25,7 @@
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.8rem;
+    color: var(--base-3);
 }
 
 /* Left section (Result) */
