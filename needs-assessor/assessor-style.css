@@ -12,7 +12,6 @@
     background-color: var(--bg-color);
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid var(--contrast-3);
     color: var(--contrast);
     max-width: 900px;
     margin: 2em auto;
